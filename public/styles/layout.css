@@ -1,0 +1,57 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 50px auto;
+}
+label,
+input[type='submit'] {
+  margin: 10px;
+  height: 50px;
+}
+label p,
+label input[type='radio'] {
+  /* margin: 32px 0; */
+  position: relative;
+  top: 25%;
+  margin-left: 10px;
+}
+label input[type='radio'] {
+  left: 60px;
+}
+#search {
+  width: 100%;
+  height: 100%;
+}
+label p {
+  display: inline-block;
+  width: 0%;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+main div {
+  background-color: gainsboro;
+  width: 70%;
+  margin: 10px auto;
+  justify-content: center;
+  text-align: center;
+  height: 560px;
+}
+main div img {
+  width: 65%;
+  height: 350px;
+  margin: 25px 15%;
+}
+main div p {
+  margin: 4px;
+}
+
+.des {
+  margin: 10px 10px;
+  text-align: start;
+}
