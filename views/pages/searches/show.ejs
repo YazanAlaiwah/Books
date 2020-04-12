@@ -30,7 +30,8 @@
             <h3><%=book.title%></h3>
             <p>writen by:</p>
             <p><%=book.author[0]%></p>
-            <p class="des"><%=book.description.slice(0,200)%>....</p>
+            <p class="des"><%=book.description.slice(0,130)%><%=book.description.length>130?'....':''%></p>
+            <!-- <p class="des"><%console.log(book.description.slice(0,10),'dsfdsfdsfds')%>....</p> -->
         </div>
         <%}) %>
     </main>

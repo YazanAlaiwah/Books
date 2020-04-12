@@ -51,7 +51,7 @@ function Book(value) {
     ? value.volumeInfo.imageLinks.thumbnail ||
       'https://www.zumlume.com/assets/frontend/images/default-book.png'
     : 'https://www.zumlume.com/assets/frontend/images/default-book.png';
-  this.description = value.volumeInfo.description || 'NO Description';
+  this.description = value.volumeInfo.description || 'NO Description avilebel';
 }
 app.get('*', (req, res) => {
   res.render('pages/error', {
