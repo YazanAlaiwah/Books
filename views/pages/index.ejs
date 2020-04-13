@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../../../styles/modules.css">
   <link rel="stylesheet" href="../../../styles/thems.css">
   <link rel="stylesheet" href="../../../styles/layout.css">
+  <script src="https://kit.fontawesome.com/60a3d0faa7.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -17,6 +18,23 @@
   <header>
     <div class="main-head">
       <h1>Best Books!</h1>
+      <!-- <i class="fas fa-bars"></i> -->
+      <div class="hamburgerrr">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+      </div>
+    </div>
+    <div class="popup">
+      <a href="/searches">
+        <p>search book here</p>
+      </a>
+      <a href="/">
+        <p>HOME</p>
+      </a>
+      <!-- <a href="/searches">
+        <p>search book here</p>
+      </a> -->
     </div>
     <!-- <div class="text-center sub-head">
             <p>Search by Title or Author</p>
@@ -31,25 +49,40 @@
       <% books.forEach(book=>{%>
 
       <li>
-       
-          <img name='img' src="<%=book.img%>" alt="">
-          <h3><%=book.title%></h3>
-          <p>writen by:</p>
-          <p><%=book.author[0]%></p>
-          <p class="des"><%=book.description.slice(0,130)%><%=book.description.length>130?'....':''%></p>
-          <!-- <form action="/books" method="POST">
-                <input name='title' value='<%=book.title%>' type="img">
-                <input name='img' value='<%=book.img%>' type="img">
-                <input name='author' value='<%=book.author%>' type="img">
-                <input name='description' value='<%=book.description%>' type="img">
 
-                <button>ADD</button>
-            </form> -->
-            <a href="/books/<%=book.id%>">  show the book</a>
+        <img name='img' src="<%=book.img%>" alt="">
+        <h3><%=book.title%></h3>
+        <p><%=book.author[0]%></p>
+
+        <a href="/books/<%=book.id%>"> show the book</a>
       </li>
       <%}) %>
     </ul>
   </main>
+  <script>
+    const hamburgerrr = document.querySelector(".hamburgerrr");
+    const firstLine = document.querySelector(".hamburgerrr .line:first-child");
+    const lastLine = document.querySelector(".hamburgerrr .line:last-child");
+    const secondLine = document.querySelector(".hamburgerrr .line:nth-child(2)");
+    const popup = document.querySelector('.popup')
+    hamburgerrr.addEventListener("click", function () {
+      if (hamburgerrr.classList.contains("transformed")) {
+        hamburgerrr.classList.remove("transformed");
+        popup.classList.toggle("popup1")
+        firstLine.style.animationName = "firstLineReverse";
+        lastLine.style.animationName = "lastLineReverse";
+        secondLine.style.animation = "appear 500ms ease-in-out forwards";
+      } else {
+        hamburgerrr.classList.add("transformed");
+        popup.classList.toggle("popup1")
+
+        firstLine.style.animationName = "firstLine";
+        lastLine.style.animationName = "lastLine";
+        secondLine.style.animation = "disappear 0ms ease-in-out 250ms forwards";
+      }
+    });
+
+  </script>
 </body>
 
 </html>

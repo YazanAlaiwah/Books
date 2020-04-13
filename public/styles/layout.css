@@ -85,3 +85,13 @@ main{
   flex-direction: column;
   flex-wrap: wrap;
 }
+
+.main-head{
+  display: flex;
+  justify-content: space-between;
+}
+
+i:active{
+  color: gold;
+  /* background-color: gold; */
+}
