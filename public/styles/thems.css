@@ -1,6 +1,8 @@
-body,
-html {
+body {
   background-color: #a5a5a5;
+}
+html{
+  background-color: white;
 }
 
 .main-head {
@@ -21,4 +23,10 @@ label {
 input[type='submit'] {
   background-color: black;
   color: white;
+}
+.des{
+  background-color: ghostwhite;
+  padding: 10px;
+  border-radius: 15px;
+  margin-bottom: 10px;
 }

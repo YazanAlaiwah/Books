@@ -18,3 +18,20 @@ h6 {
 p {
   text-align: center;
 }
+
+.title{
+  color: white;
+  font-weight: bolder;
+}
+.isbn,.bookshelf{
+  color: #696969;
+}
+
+.des::-webkit-scrollbar {
+  display: none;
+}
+
+body::-webkit-scrollbar{
+  display: none;
+
+}
