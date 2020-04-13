@@ -34,24 +34,54 @@ main {
   justify-content: center;
 }
 
-main div {
+.div,
+li {
   background-color: gainsboro;
-  width: 70%;
+  width: 85%;
   margin: 10px auto;
   justify-content: center;
   text-align: center;
   height: 510px;
 }
-main div img {
+.div img {
+  width: 50%;
+  height: 225px;
+  margin: 25px 15%;
+}
+.div p {
+  margin: 4px;
+}
+.par{
+  width: 80%;
+  margin:0  10%;
+  max-height: 90px;
+  overflow-y: scroll;
+}
+main li img {
   width: 65%;
   height: 310px;
   margin: 25px 15%;
 }
-main div p {
+main li p {
   margin: 4px;
 }
 
 .des {
   margin: 10px 10px;
   text-align: start;
+}
+html{
+  overflow: hidden;
+}
+
+body{
+  max-height: 100%;
+  /* overflow: none; */
+
+}
+main{
+  /* overflow-y: scroll; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }

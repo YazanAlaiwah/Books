@@ -2,33 +2,54 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../../../styles/reset.css">
-    <link rel="stylesheet" href="../../styles/base.css">
-    <link rel="stylesheet" href="../../../styles/modules.css">
-    <link rel="stylesheet" href="../../../styles/thems.css">
-    <link rel="stylesheet" href="../../../styles/layout.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../../../styles/reset.css">
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../../styles/modules.css">
+  <link rel="stylesheet" href="../../../styles/thems.css">
+  <link rel="stylesheet" href="../../../styles/layout.css">
 
 </head>
 
 <body>
-    <header>
-        <div class="main-head">
-            <h1>Best Books!</h1>
-        </div>
-        <!-- <div class="text-center sub-head">
+  <header>
+    <div class="main-head">
+      <h1>Best Books!</h1>
+    </div>
+    <!-- <div class="text-center sub-head">
             <p>Search by Title or Author</p>
         </div> -->
-    </header>
-    <main>
-        <h5>Welcom on book-app</h5>
-        <h6>we still work on this page but please checkout the link belowe for search in a book</h6>
-        <a href="/searches">
-            <p>search book here</p>
-        </a>
-    </main>
+  </header>
+  <main>
+    <a href="/searches">
+      <p>search book here</p>
+    </a>
+    <h4>totale of books :<%=books.length%></h4>
+    <ul>
+      <% books.forEach(book=>{%>
+
+      <li>
+       
+          <img name='img' src="<%=book.img%>" alt="">
+          <h3><%=book.title%></h3>
+          <p>writen by:</p>
+          <p><%=book.author[0]%></p>
+          <p class="des"><%=book.description.slice(0,130)%><%=book.description.length>130?'....':''%></p>
+          <!-- <form action="/books" method="POST">
+                <input name='title' value='<%=book.title%>' type="img">
+                <input name='img' value='<%=book.img%>' type="img">
+                <input name='author' value='<%=book.author%>' type="img">
+                <input name='description' value='<%=book.description%>' type="img">
+
+                <button>ADD</button>
+            </form> -->
+            <a href="/books/<%=book.id%>">  show the book</a>
+      </li>
+      <%}) %>
+    </ul>
+  </main>
 </body>
 
 </html>

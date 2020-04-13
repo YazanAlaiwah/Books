@@ -13,25 +13,26 @@
 </head>
 
 <body>
-    <header>
-        <div class="main-head">
-            <h1>Best Books!</h1>
-        </div>
-        <!-- <div class="text-center sub-head">
-            <p>Search by Title or Author</p>
-        </div> -->
-    </header>
+    <%- include('../../layout/header')%>
     <main>
         <% data.forEach(book=>{%>
-        <div>
-            <%console.log(book.title,'  ',book.author)%>
-            <img src="<%=book.img%>" alt="">
-            <!-- <h3>></h3> -->
+            <%console.log(book,'salmam')%>
+        <div class="div">
+            <img name='img' src="<%=book.img%>" alt="">
             <h3><%=book.title%></h3>
             <p>writen by:</p>
             <p><%=book.author[0]%></p>
             <p class="des"><%=book.description.slice(0,130)%><%=book.description.length>130?'....':''%></p>
-            <!-- <p class="des"><%console.log(book.description.slice(0,10),'dsfdsfdsfds')%>....</p> -->
+            <form action="/books" method="POST">
+                <input name='title' value='<%=book.title%>' type="img">
+                <input name='img' value='<%=book.img%>' type="img">
+                <input name='author' value='<%=book.author%>' type="img">
+                <input name='description' value='<%=book.description%>' type="img">
+                <input name='bookshelf' value='<%=book.bookshelf[0]%>' type="img">
+                <input name='isbn' value='<%=book.ISBN[0].identifier%>' type="img">
+
+                <button>ADD</button>
+            </form>
         </div>
         <%}) %>
     </main>
