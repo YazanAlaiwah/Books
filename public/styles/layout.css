@@ -1,8 +1,19 @@
-form {
+.form-edit {
   display: flex;
   flex-direction: column;
   width: 80%;
   margin: 50px auto;
+  background: grey;
+  height: 80%;
+}
+
+.form-div{
+  position: absolute;
+  top: 0%;
+  width: 40%;
+  left: 30%;
+  background: #0000009e;
+  height: 100%;
 }
 label,
 input[type='submit'] {
@@ -41,7 +52,7 @@ li {
   margin: 10px auto;
   justify-content: center;
   text-align: center;
-  height: 510px;
+  height: 87%;
 }
 .div img {
   width: 50%;
@@ -51,9 +62,9 @@ li {
 .div p {
   margin: 4px;
 }
-.par{
+.par {
   width: 80%;
-  margin:0  10%;
+  margin: 0 10%;
   max-height: 90px;
   overflow-y: scroll;
 }
@@ -70,28 +81,36 @@ main li p {
   margin: 10px 10px;
   text-align: start;
 }
-html{
+html {
   overflow: hidden;
 }
 
-body{
+body {
   max-height: 100%;
   /* overflow: none; */
-
 }
-main{
+main {
   /* overflow-y: scroll; */
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
 }
 
-.main-head{
+.main-head {
   display: flex;
   justify-content: space-between;
 }
 
-i:active{
+i:active {
   color: gold;
   /* background-color: gold; */
+}
+
+
+.search{
+  width: 82%;
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  margin: 20px 9%;
 }

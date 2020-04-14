@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,17 @@
     <link rel="stylesheet" href="../../../styles/modules.css">
     <link rel="stylesheet" href="../../../styles/thems.css">
     <link rel="stylesheet" href="../../../styles/layout.css">
+    <script src="https://kit.fontawesome.com/60a3d0faa7.js" crossorigin="anonymous"></script>
+
 </head>
+
 <body>
+
     <%- include('../../layout/header') %>
-    <%- include('detail.ejs',{book}) %>
+    <%- include('detail.ejs',{book,place:'show'}) %>
+    <%- include('edit.ejs',{book,bookshelfs}) %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+    <script src="/app.js"></script>
 </body>
+
 </html>
-    
-    
-   

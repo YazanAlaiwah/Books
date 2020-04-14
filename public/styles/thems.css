@@ -23,6 +23,8 @@ label {
 input[type='submit'] {
   background-color: black;
   color: white;
+  border: 0;
+  border-radius: 5px;
 }
 .des{
   background-color: ghostwhite;

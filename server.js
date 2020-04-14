@@ -7,11 +7,14 @@ const app = express();
 const PORT = process.env.PORT || 3030;
 const pg = require('pg');
 const client = new pg.Client(process.env.DATABASE_URL);
+const methodOverride = require('method-override');
 app.use(express.static('./public'));
 
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
+
+app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs');
 
@@ -28,10 +31,16 @@ app.post('/books', (req, res) => {
 app.get('/books/:id', (req, res) => {
   let SQL = `SELECT * FROM book WHERE id = $1`;
   let safeValues = [req.params.id];
-  client
-    .query(SQL, safeValues)
-    .then((data) => res.render('pages/books/show', { book: data.rows[0] }));
-  // console.log(req.params.id, 'sdfdsfds');
+  client.query(SQL, safeValues).then((data) => {
+    let SQL = ' SELECT DISTINCT bookshelf FROM book';
+    client.query(SQL).then((data1) => {
+      res.render('pages/books/show', {
+        book: data.rows[0],
+        bookshelfs: data1.rows,
+      });
+    });
+  });
+  // .then((data) => res.render('pages/books/show', { book: data.rows[0] }));
 });
 app.get('/', (req, res) => {
   let SQL = 'SELECT * FROM book';
@@ -46,7 +55,6 @@ app.get('/searches', (req, res) => {
 app.post('/searches', (req, res) => {
   let search = req.body.search;
   let type = req.body.check;
-  // console.log(search, type);
   let url = `https://www.googleapis.com/books/v1/volumes?q=${type}:${search}`;
   superagent
     .get(url)
@@ -56,6 +64,44 @@ app.post('/searches', (req, res) => {
     )
     .catch((err) => handelError(err, res));
 });
+// app.get('/getdata/:id', (req, res) => {
+//   let SQL = 'SELECT * FROM book WHERE id=$1';
+//   let safeValues = [req.params.id];
+//   client.query(SQL, safeValues).then((data1) => {
+//     let SQL = ' SELECT DISTINCT bookshelf FROM book';
+//     client.query(SQL).then((data) => {
+//       res.render('pages/books/edit.ejs', {
+//         data: data.rows,
+//         data1: data1.rows[0],
+//       });
+//     });
+//   });
+// });
+
+app.delete('/books/:id', (req, res) => {
+  let SQL = 'DELETE FROM book WHERE id=$1';
+  let safeValues = [req.params.id];
+  client.query(SQL, safeValues).then((data) => res.redirect('/'));
+});
+
+app.put('/books/:id', (req, res) => {
+  console.log('dsfdsffs');
+  let SQL =
+    'UPDATE book SET title=$1, author=$2, isbn=$7, img=$3, description=$4, bookshelf=$5 WHERE id=$6';
+  let { title, bookshelf, author, description, img, isbn } = req.body;
+  let safeValues = [
+    title,
+    author,
+    img,
+    description,
+    bookshelf,
+    req.params.id,
+    isbn,
+  ];
+  client
+    .query(SQL, safeValues)
+    .then((data) => res.redirect(`/books/${req.params.id}`));
+});
 
 function handelError(err, res) {
   console.log(err);
@@ -63,8 +109,8 @@ function handelError(err, res) {
     img: 'https://blog.hubspot.com/hubfs/HTTP-500-Internal-Server-Error.jpg',
   });
 }
+
 function Book(value) {
-  console.log(value.volumeInfo.categories || ['Unknown'], 'sdsdsd');
   this.title = value.volumeInfo.title || 'Unknown';
   this.author = value.volumeInfo.authors || ['Unknown'];
   this.img = value.volumeInfo.imageLinks
@@ -83,13 +129,6 @@ app.get('*', (req, res) => {
       'https://qph.fs.quoracdn.net/main-qimg-cefa16b696338ef60eae571cc8a27b10.webp',
   });
 });
-
-function errors(err, req, res) {
-  // console.log(err)
-  res.render('pages/error', {
-    img: 'https://blog.hubspot.com/hubfs/HTTP-500-Internal-Server-Error.jpg',
-  });
-}
 
 app.use((err, req, res) => {
   // console.log(

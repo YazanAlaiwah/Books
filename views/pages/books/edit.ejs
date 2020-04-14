@@ -1,0 +1,19 @@
+<div class="form-div ">
+<form class="form-edit" action="/books/<%=book.id%>/?_method=put" method="POST">
+    <i id='delete' class="far fa-times-circle"></i>
+    <input class="edit-input" type="text" name="title" value="<%=book.title%>">
+    <input class="edit-input" type="text" name="author" value="<%=book.author%>">
+    <input class="edit-input" type="text" name="isbn" value="<%=book.isbn%>">
+    <input class="edit-input" type="text" name="img" value="<%=book.img%>">
+    <textarea name="description"><%=book.description%></textarea>
+    <select name="bookshelf" id="">
+        <option value="<%=book.bookshelf%>"><%=book.bookshelf%></option>
+        <%bookshelfs.forEach(type=>{%>
+        <%  if(type.bookshelf!==book.bookshelf&&type.bookshelf!=='Unknown'){%>
+        <option value="<%=type.bookshelf%>"><%=type.bookshelf%></option>
+        <% } %>
+        <%})%>
+    </select>
+    <button class="updata-btn">Updata</button>
+</form>
+</div>
