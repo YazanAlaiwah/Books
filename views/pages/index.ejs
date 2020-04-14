@@ -15,10 +15,11 @@
 </head>
 
 <body>
-  <header>
+  <%-include('../layout/header')%>
+  <!-- <header>
     <div class="main-head">
       <h1>Best Books!</h1>
-      <!-- <i class="fas fa-bars"></i> -->
+       <i class="fas fa-bars"></i> 
       <div class="hamburgerrr">
         <div class="line"></div>
         <div class="line"></div>
@@ -32,34 +33,34 @@
       <a href="/">
         <p>HOME</p>
       </a>
-      <!-- <a href="/searches">
+       <a href="/searches">
         <p>search book here</p>
-      </a> -->
+      </a> 
     </div>
-    <!-- <div class="text-center sub-head">
+  <div class="text-center sub-head">
             <p>Search by Title or Author</p>
-        </div> -->
-  </header>
+        </div> 
+  </header> -->
   <main>
-    <a href="/searches">
-      <p>search book here</p>
-    </a>
-    <h4>totale of books :<%=books.length%></h4>
+    <%if(books.length > 0){%>
+    <h4 class="total-books"><span><%=books.length%></span> Saved Books</h4>
+
+    <%}else{%>
+
+    <h2 class="non-books"> Still You didn't save any books<br> Please add Books for Goole APIs in the link belowe <h2>
+        <a class='non-a' href="">HERE</a>
+        <%}%>
     <ul>
       <% books.forEach(book=>{%>
+        <%-include('./books/detail',{book , place:'index'})%>
+        <li>
 
-      <li>
 
-        <img name='img' src="<%=book.img%>" alt="">
-        <h3><%=book.title%></h3>
-        <p><%=book.author[0]%></p>
-
-        <a href="/books/<%=book.id%>"> show the book</a>
-      </li>
-      <%}) %>
-    </ul>
+        </li>
+        <%}) %>
+        </ul>
   </main>
-  <script>
+  <!-- <script>
     const hamburgerrr = document.querySelector(".hamburgerrr");
     const firstLine = document.querySelector(".hamburgerrr .line:first-child");
     const lastLine = document.querySelector(".hamburgerrr .line:last-child");
@@ -82,7 +83,7 @@
       }
     });
 
-  </script>
+  </script> -->
 </body>
 
 </html>

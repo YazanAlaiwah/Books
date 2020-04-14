@@ -14,16 +14,12 @@
 </head>
 
 <body>
-    <header>
-        <div class="main-head">
-            <h1>Best Books!</h1>
-        </div>
+ <%-include('../../layout/header')%>
+    <main>
         <div class="text-center sub-head">
             <p>Search by Title or Author</p>
         </div>
-    </header>
-    <main>
-        <form action="/searches" method="POST">
+        <form class='search' action="/searches" method="POST">
             <label for="search">
                 <input type="text" name="search" id="search" placeholder="Enter a title or author" required>
             </label>

@@ -1,10 +1,47 @@
 <section class="div">
 
   <img name='img' src="<%=book.img%>" alt="">
-  <%console.log(book,'inside')%>
   <h3 class="title"><%=book.title%></h3>
   <p class="author"><%=book.author%></p>
-  <p class="des par"style="margin:10px auto;"><%=book.description%></p>
+  <%if(place==='show'){%>
+  <p class="des par" style="margin:10px auto;"><%=book.description%></p>
+  <%}%> 
+  <%if(place==='resulte'){%>
+  <p class="des par" style="margin:10px auto;background-color: unset;">
+    <%=place==='show'? book.description :book.description.slice(0,150)+( book.description.length > 90 ? '...':'')%></p>
+  <%}%> 
+
+  <%if(place==='show' || place === 'resulte'){%>
+  <%if( place === 'resulte'){%>
+  <form class='form1' action="/books" method="POST">
+    <input name='title' value='<%=book.title%>' type="img">
+    <input name='img' value='<%=book.img%>' type="img">
+    <input name='author' value='<%=book.author%>' type="img">
+    <input name='description' value='<%=book.description%>' type="img">
+    <input name='bookshelf' value='<%=book.bookshelf[0]%>' type="img">
+    <input name='isbn' value='<%=book.ISBN[0].identifier%>' type="img">
+    <button>ADD</button>
+  </form>
+  <%}%>
+  <%if(place==='show'){%>
   <p class="isbn">ISBN: <%=book.isbn%></p>
   <p class="bookshelf">Bookshelf: <%=book.bookshelf%></p>
+
+  <%}%> 
+    <%}%>
+  <div class="edits-btn">
+    <%if(place==='show'){%>
+    <form class="form" action="/books/<%=book.id%>/?_method=delete" method="POST">
+      <button>DELETE</button>
+    </form>
+    <form id="updata" class="form">
+      <button >UPDATE</button>
+    </form>
+    <%}%> 
+
+    <%if(place==='index'){%>
+    <a class='show-btn' href="/books/<%=book.id%>"> show the book</a>
+    <%}%>
+   
+  </div>
 </section>

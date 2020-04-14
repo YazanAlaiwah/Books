@@ -19,11 +19,12 @@ p {
   text-align: center;
 }
 
-.title{
+.title {
   color: white;
   font-weight: bolder;
 }
-.isbn,.bookshelf{
+.isbn,
+.bookshelf {
   color: #696969;
 }
 
@@ -31,23 +32,144 @@ p {
   display: none;
 }
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
   display: none;
-
 }
 
-.popup{
-  background-color: #000000b3;
-  position: relative;
+.popup {
+  background-color: #000000d1;
+  position: static;
   width: 100%;
 }
-.popup1{
-
+.popup a {
+  padding: 61px;
+  color: white;
+  text-decoration: none;
+  font-size: small;
+  font-weight: bolder;
+  margin: -7px;
+}
+.popup1 {
   display: none;
 }
+.edits-btn {
+  display: flex;
+  justify-content: space-evenly;
+}
 
+.form1 button {
+  width: 59%;
+  margin: auto;
+  background: #292929;
+  padding: 10px;
+  color: white;
+  border: 0px;
+  border-radius: 8px;
+}
+.edits-btn button {
+  width:100%;
+  margin: auto;
+  background: #292929;
+  padding: 10px;
+  color: white;
+  border: 0px;
+  border-radius: 8px;
+}
+.form1 {
+  margin: 10%;
+}
 
+.total-books {
+  font-size: medium;
+  text-align: center;
+  color: #dedede;
+  background: gray;
+  padding: 5px;
+}
+.total-books span {
+  background: #dedede;
+  border-radius: 53%;
+  padding: 2px;
+  color: gray;
+  font-size: smaller;
+}
 
+.non-books {
+  font-size: x-large;
+  text-align: center;
+  margin: 40px auto;
+  width: 90%;
+  font-weight: bolder;
+  color: white;
+}
+
+.non-a {
+  font-size: x-large;
+  font-weight: bolder;
+  color: blue;
+  text-decoration: none;
+  margin: 42%;
+}
+.non-a:hover {
+  font-size: xx-large;
+  /* font-weight: bolder; */
+  color: lightseagreen;
+  text-decoration: none;
+  margin: 41%;
+}
+
+.show-btn {
+  text-decoration: none;
+  color: white;
+  background: black;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 25px 0 30px 0;
+}
+
+.form {
+  margin: 11px 0px;
+}
+
+.edit-input {
+  width: 90%;
+  margin: 12px auto;
+  border-radius: 4px;
+  border: 0;
+  height: 30px;
+  padding: 2px 0px 0px 9px;
+}
+
+textarea {
+  padding: 2px 0px 0px 9px;
+  width: 90%;
+  margin: 0 auto;
+  border: 0;
+  border-radius: 5px;
+  height: 75px;
+}
+select {
+  border: 0;
+  border-radius: 5px;
+  width: 93%;
+  margin: 10px auto;
+  padding: 2px 0 0 9px;
+  color: #3e3e3e;
+  background: #b3b3b3;
+  font-size: small;
+  font-weight: 600;
+}
+
+.updata-btn {
+  width: 28%;
+  margin: 27px 0 46px 67%;
+  border: 0;
+  border-radius: 5px;
+  background: black;
+  color: white;
+  font-size: x-small;
+  padding: 10px;
+}
 
 /* menue */
 .hamburgerrr {
