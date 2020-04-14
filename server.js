@@ -64,7 +64,6 @@ app.post('/searches', (req, res) => {
     )
     .catch((err) => handelError(err, res));
 });
-
 // app.get('/getdata/:id', (req, res) => {
 //   let SQL = 'SELECT * FROM book WHERE id=$1';
 //   let safeValues = [req.params.id];
@@ -86,6 +85,7 @@ app.delete('/books/:id', (req, res) => {
 });
 
 app.put('/books/:id', (req, res) => {
+  console.log('dsfdsffs');
   let SQL =
     'UPDATE book SET title=$1, author=$2, isbn=$7, img=$3, description=$4, bookshelf=$5 WHERE id=$6';
   let { title, bookshelf, author, description, img, isbn } = req.body;

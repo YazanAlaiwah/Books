@@ -1,5 +1,6 @@
-<div class="form-div">
-<form class="form-edit" action="books/<%=book.id%>/?_method=put" method="POST">
+<div class="form-div ">
+<form class="form-edit" action="/books/<%=book.id%>/?_method=put" method="POST">
+    <i id='delete' class="far fa-times-circle"></i>
     <input class="edit-input" type="text" name="title" value="<%=book.title%>">
     <input class="edit-input" type="text" name="author" value="<%=book.author%>">
     <input class="edit-input" type="text" name="isbn" value="<%=book.isbn%>">
